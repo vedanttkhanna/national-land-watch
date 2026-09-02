@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CompensationRouteImport } from './routes/compensation'
+import { Route as ObjectionsRouteImport } from './routes/objections'
+import { Route as RehabilitationRouteImport } from './routes/rehabilitation'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as StatesRouteImport } from './routes/states'
+import { Route as TimelineRouteImport } from './routes/timeline'
+import { Route as ProjectsIndexRouteImport } from './routes/projects/index'
+import { Route as ProjectsProjectIdRouteImport } from './routes/projects/$projectId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompensationRoute = CompensationRouteImport.update({
+  id: '/compensation',
+  path: '/compensation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ObjectionsRoute = ObjectionsRouteImport.update({
+  id: '/objections',
+  path: '/objections',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RehabilitationRoute = RehabilitationRouteImport.update({
+  id: '/rehabilitation',
+  path: '/rehabilitation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatesRoute = StatesRouteImport.update({
+  id: '/states',
+  path: '/states',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TimelineRoute = TimelineRouteImport.update({
+  id: '/timeline',
+  path: '/timeline',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsProjectIdRoute = ProjectsProjectIdRouteImport.update({
+  id: '/projects/$projectId',
+  path: '/projects/$projectId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/compensation': typeof CompensationRoute
+  '/objections': typeof ObjectionsRoute
+  '/rehabilitation': typeof RehabilitationRoute
+  '/reports': typeof ReportsRoute
+  '/states': typeof StatesRoute
+  '/timeline': typeof TimelineRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
+  '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/compensation': typeof CompensationRoute
+  '/objections': typeof ObjectionsRoute
+  '/rehabilitation': typeof RehabilitationRoute
+  '/reports': typeof ReportsRoute
+  '/states': typeof StatesRoute
+  '/timeline': typeof TimelineRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
+  '/projects': typeof ProjectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/compensation': typeof CompensationRoute
+  '/objections': typeof ObjectionsRoute
+  '/rehabilitation': typeof RehabilitationRoute
+  '/reports': typeof ReportsRoute
+  '/states': typeof StatesRoute
+  '/timeline': typeof TimelineRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
+  '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/compensation'
+    | '/objections'
+    | '/rehabilitation'
+    | '/reports'
+    | '/states'
+    | '/timeline'
+    | '/projects/$projectId'
+    | '/projects/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/compensation'
+    | '/objections'
+    | '/rehabilitation'
+    | '/reports'
+    | '/states'
+    | '/timeline'
+    | '/projects/$projectId'
+    | '/projects'
+  id:
+    | '__root__'
+    | '/'
+    | '/compensation'
+    | '/objections'
+    | '/rehabilitation'
+    | '/reports'
+    | '/states'
+    | '/timeline'
+    | '/projects/$projectId'
+    | '/projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CompensationRoute: typeof CompensationRoute
+  ObjectionsRoute: typeof ObjectionsRoute
+  RehabilitationRoute: typeof RehabilitationRoute
+  ReportsRoute: typeof ReportsRoute
+  StatesRoute: typeof StatesRoute
+  TimelineRoute: typeof TimelineRoute
+  ProjectsProjectIdRoute: typeof ProjectsProjectIdRoute
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compensation': {
+      id: '/compensation'
+      path: '/compensation'
+      fullPath: '/compensation'
+      preLoaderRoute: typeof CompensationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/objections': {
+      id: '/objections'
+      path: '/objections'
+      fullPath: '/objections'
+      preLoaderRoute: typeof ObjectionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rehabilitation': {
+      id: '/rehabilitation'
+      path: '/rehabilitation'
+      fullPath: '/rehabilitation'
+      preLoaderRoute: typeof RehabilitationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/states': {
+      id: '/states'
+      path: '/states'
+      fullPath: '/states'
+      preLoaderRoute: typeof StatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/timeline': {
+      id: '/timeline'
+      path: '/timeline'
+      fullPath: '/timeline'
+      preLoaderRoute: typeof TimelineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/': {
+      id: '/projects/'
+      path: '/projects'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/$projectId': {
+      id: '/projects/$projectId'
+      path: '/projects/$projectId'
+      fullPath: '/projects/$projectId'
+      preLoaderRoute: typeof ProjectsProjectIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CompensationRoute: CompensationRoute,
+  ObjectionsRoute: ObjectionsRoute,
+  RehabilitationRoute: RehabilitationRoute,
+  ReportsRoute: ReportsRoute,
+  StatesRoute: StatesRoute,
+  TimelineRoute: TimelineRoute,
+  ProjectsProjectIdRoute: ProjectsProjectIdRoute,
+  ProjectsIndexRoute: ProjectsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
